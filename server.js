@@ -25,8 +25,9 @@ app.get('/',async (req,res)=>{
 // Route to handle user profile requests
 app.get('/api/user-profile', async (req, res) => {
   try {
+    const value = req.headers.Authorization
     const response = await axios.get('https://id-dev.rfoxvalt.com/api/v1/auth/user', {
-      headers: { Authorization: `Bearer ${req.headers.authorization}` },
+      headers: { Authorization: value },
     });
     res.status(response.status).json(response.data);
   } catch (error) {
