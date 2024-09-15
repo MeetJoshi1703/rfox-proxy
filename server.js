@@ -19,7 +19,9 @@ app.post('/api/login', async (req, res) => {
     res.status(error.response ? error.response.status : 500).json({ error: error.message });
   }
 });
-
+app.get('/',async (req,res)=>{
+  res.send("hello world")
+})
 // Route to handle user profile requests
 app.get('/api/user-profile', async (req, res) => {
   try {
